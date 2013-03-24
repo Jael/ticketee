@@ -2,11 +2,18 @@ Feature: Creating projects
   In order to have projects to assign ticket to
   As a user
   I want to create them easily
-  Scenario: Creating a project
+  Background:
     Given I am on the "homepage"
     When I follow "New Project"
+
+  Scenario: Creating a project
     And I fill in "Name" with "TextMate2"
     And I press "Create Project"
     Then I should see "Project has been created"
     And I should be on the project page for "TextMate2"
-    #And I should see "TextMate2 - Projects - Ticketee"
+    #And I should see "TextMate2ProjectsTicketee"
+
+  Scenario: Creating a project without a name
+    And I press "Create Project"
+    Then I should see "Project has not been created."
+    And I should see "Name can't be blank"
