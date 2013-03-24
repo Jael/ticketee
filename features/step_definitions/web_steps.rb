@@ -13,4 +13,11 @@ end
 Then(/^I should see "(.*?)"$/) do |content|
   page.should have_content(content)
 end
+And(/^I should be on the project page for "(.*?)"$/) do |name| 
+  project_path(Project.find_by_name!(name))
+end
+#Don't know why it say ambigues.
+#And(/^I should see "(.*?)"$/) do |content|
+ # page.should have_content(content)
+#end
 
