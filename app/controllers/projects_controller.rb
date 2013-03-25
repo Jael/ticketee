@@ -18,6 +18,19 @@ class ProjectsController < ApplicationController
       flash[:alert] = "Project has not been created."
       render :new 
     end
+  end
 
+  def edit
+    @project = Project.find(params[:id])
+  end
+
+  def update
+    @project = Project.find(params[:id])
+    if @project.update_attributes(params[:project])
+      redirect_to @project, flash: {success: "Project has been updated."}
+    else
+      flash[:alert] = "Project has not been updated."
+      render :edit
+    end
   end
 end
