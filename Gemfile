@@ -24,6 +24,7 @@ gem 'jquery-rails'
 gem 'therubyracer'
 group :test, :development do
   gem 'rspec-rails'
+  gem 'email_spec'
 end
 
 group :test do 
