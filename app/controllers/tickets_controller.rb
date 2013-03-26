@@ -1,4 +1,5 @@
 class TicketsController < ApplicationController
+  before_filter :authenticate_user!, except: [:show, :index]
   before_filter :find_project
   before_filter :find_ticket, only: [:show, :edit, :update, :destroy]
   def new
@@ -6,7 +7,7 @@ class TicketsController < ApplicationController
   end 
 
   def create
-    @ticket = @project.tickets.new(params[:ticket])
+    @ticket = @project.tickets.new(params[:ticket].merge!(user: current_user))
     if @ticket.save
       redirect_to [@project, @ticket], notice: "Ticket has been created." 
     else

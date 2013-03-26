@@ -1,7 +1,8 @@
 <div id='ticket'>
 <h2><%= @ticket.title %></h2>
+<em>Created by <%= @ticket.user.email %></em>
 <p><%= simple_format @ticket.description %></p>
-<%= link_to "Edit Ticket", [:edit,@project, @ticket] %>
+<%= link_to "Edit Ticket", [:edit, @project, @ticket] %>
 | <%= link_to "Delete Ticket", [@project, @ticket], method: :delete, confirm: "Are you sure?" %>
 </div>
 
