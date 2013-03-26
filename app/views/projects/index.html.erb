@@ -2,4 +2,6 @@
 <% @projects.each do |project| %>
   <%= link_to project.name, project %><br />
 <% end %>
-<%= link_to "New Project", new_project_path %>
+<%= admins_only do %>
+  <%= link_to "New Project", new_project_path %>
+<% end %>
