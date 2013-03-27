@@ -5,13 +5,16 @@ Feature: Viewing Ticketing
 
   Background:
     Given there are the following users:
-      |email            |password|unconfirmed|
-      |user@ticketee.com|password|true|
+      |email            |password|
+      |user@ticketee.com|password|
+    And I am signed in as them
     And there is a project called "TextMate2"
+    And "user@ticketee.com" can view the "TextMate2" project
     And "user@ticketee.com" has created a ticket for that project:
       | title          | description                   |
       | Make it shiny! | Gradients! Starbursts! Oh my! |
     And there is a project called "Internet Explorer"
+    And "user@ticketee.com" can view the "Internet Explorer" project
     And "user@ticketee.com" has created a ticket for that project:
       | title                | description   |
       | standards compliance | Isn't a joke. |

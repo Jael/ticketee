@@ -18,3 +18,13 @@ Given(/^I am signed in as admin$/) do
     Then I should see "Signed in successfully."
   })
 end
+Given(/^I am signed in as "(.*?)"$/) do |arg1|
+  steps(%Q{
+    And I am on the homepage
+    When I follow "Sign in"
+    And I fill in "Email" with "#{arg1}"
+    And I fill in "Password" with "password"
+    And I press "Sign in"
+    Then I should see "Signed in successfully."
+  })
+end

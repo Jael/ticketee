@@ -10,7 +10,7 @@ end
 When(/^I check "(.*?)"$/) do |arg1|
   check arg1
 end
-When(/^I press the "(.*?)" with user_id "(.*?)"$/) do |arg1, arg2|
-  click_button arg1
-  User.find(arg2).confirm!
-end
+#When(/^I press the "(.*?)" with user_id "(.*?)"$/) do |arg1, arg2|
+ # click_button arg1
+  #User.find(arg2).confirm!
+#end

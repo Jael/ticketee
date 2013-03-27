@@ -19,7 +19,7 @@ Feature: Editing a user
 
   Scenario: Updating a user's details
     When I fill in "Email" with "newguy@ticketee.com"
-    And I press the "Update User" with user_id "2"
+    And I press "Update User" 
     Then I should see "User has been updated."
     #    And I should see "newguy@ticketee.com"
     #And I should not see "user@ticketee.com"
