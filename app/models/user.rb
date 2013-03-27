@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
   has_many :tickets, dependent: :destroy
+
+  def to_s
+    "#{email}(#{admin? ? "Admin" : "User"})"
+  end
 end

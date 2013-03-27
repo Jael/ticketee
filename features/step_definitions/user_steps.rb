@@ -7,3 +7,6 @@ Given(/^there are the following users:$/) do |table|
     @user.confirm! unless unconfirmed
   end
 end
+When(/^I check "(.*?)"$/) do |arg1|
+  check arg1
+end
