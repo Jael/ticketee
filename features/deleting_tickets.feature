@@ -9,6 +9,7 @@ Feature: Deleting tickets
     And I am signed in as them
     Given there is a project called "TextMate2"
     And "user@ticketee.com" can view the "TextMate2" project
+    And "user@ticketee.com" can delete tickets in the "TextMate2" project
     And "user@ticketee.com" has created a ticket for that project:
       |title|description|
       |Make it shiny!|Gradients! Starbursts! Oh my!|
