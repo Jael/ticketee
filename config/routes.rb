@@ -1,7 +1,7 @@
 Ticketee::Application.routes.draw do
   devise_for :users
 
-  root to: "projects#index"
+  root to: 'projects#index' 
   resources :projects do
     resources :tickets
   end
@@ -10,5 +10,4 @@ Ticketee::Application.routes.draw do
     resources :users
     root to:"base#index"
   end
-  
 end
