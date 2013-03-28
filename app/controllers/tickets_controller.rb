@@ -3,7 +3,10 @@ class TicketsController < ApplicationController
   before_filter :find_project
   before_filter :find_ticket, only: [:show, :edit, :update, :destroy]
   before_filter :authorize_create!, only: [:new, :create]
+<<<<<<< HEAD
   before_filter :authorize_update!, only: [:edit, :update]
+=======
+>>>>>>> 6ba6e4d2e70eec81a92e2ca8e8a6de3a70f935e3
   def new
     @ticket = Ticket.new
   end 
@@ -50,6 +53,7 @@ class TicketsController < ApplicationController
       redirect_to @project
     end
   end
+<<<<<<< HEAD
 
   def authorize_update!
     if !current_user.admin? && cannot?("edit tickets".to_sym, @project)
@@ -57,4 +61,6 @@ class TicketsController < ApplicationController
       redirect_to @project
     end
   end
+=======
+>>>>>>> 6ba6e4d2e70eec81a92e2ca8e8a6de3a70f935e3
 end

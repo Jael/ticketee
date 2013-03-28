@@ -17,7 +17,11 @@ describe TicketsController do
   context "with permission to view the project" do
     before do
       sign_in(:user, user)
+<<<<<<< HEAD
       Permission.create!(user:user, thing: project, action: "view")
+=======
+      Permission.create!(user: user, thing: project, action: "view")
+>>>>>>> 6ba6e4d2e70eec81a92e2ca8e8a6de3a70f935e3
     end
 
     def cannot_create_tickets!
@@ -25,17 +29,21 @@ describe TicketsController do
       flash[:alert].should eql("You cannot create tickets on this project.")
     end
 
+<<<<<<< HEAD
     def cannot_update_tickets!
       response.should redirect_to(project)
       flash[:alert].should eql("You cannot edit tickets on this project.")
     end
 
+=======
+>>>>>>> 6ba6e4d2e70eec81a92e2ca8e8a6de3a70f935e3
     it "cannot begin to create a ticket" do
       get :new, project_id: project.id
       cannot_create_tickets!
     end
 
     it "cannot create a ticket without permission" do
+<<<<<<< HEAD
       post :create, project_id: project.id 
       cannot_create_tickets!
     end
@@ -49,6 +57,11 @@ describe TicketsController do
       get :update, {project_id: project.id, id: ticket.id, ticket: {}}
       cannot_update_tickets!
     end
+=======
+      get :create, project_id: project.id
+      cannot_create_tickets!
+    end
+>>>>>>> 6ba6e4d2e70eec81a92e2ca8e8a6de3a70f935e3
   end
 end
 
