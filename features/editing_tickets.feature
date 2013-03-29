@@ -17,7 +17,7 @@ Feature: Editing tickets
     Given I am on the homepage
     When I follow "TextMate2"
     And I follow "Make it shiny!"
-    When I follow "Edit Ticket"
+    When I follow "Edit"
 
   Scenario:Updating a ticket
     When I fill in "Title" with "Make it really shiny!"
