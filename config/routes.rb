@@ -7,9 +7,12 @@ Ticketee::Application.routes.draw do
   end
 
   namespace :admin do
-    resources :users
+    resources :users do
+      resources :permissions
+    end
     root to:"base#index"
   end
 
   get '/awaiting_confirmation', to: 'users#confirmation', as: 'confirm_user'
+  put '/admin/users/:user_id/permissions', to: 'admin/permissions#update', as: :update_user_permissions
 end
