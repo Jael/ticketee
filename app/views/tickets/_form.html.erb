@@ -1,4 +1,4 @@
-<%= form_for [@project, @ticket] do |f| %>
+<%= form_for [@project, @ticket], html: {multipart: true} do |f| %>
 <% if @ticket.errors.any? %>
   <h2><%= pluralize @ticket.errors.count, "error" %> prohibit this ticket to be create.</h2>
   <ul>
@@ -15,6 +15,10 @@
 <p>
   <%= f.label :description %><br />
   <%= f.text_area :description, rows:3 %>
+</p>
+<p>
+  <%= f.label :asset, "File" %><br />
+  <%= f.file_field :asset %>
 </p>
 <p><%= f.submit %></p>
 <% end %>
