@@ -14,3 +14,9 @@ end
 Then(/^I should see the "(.*?)" within "(.*?)"$/) do |content, css|
   page.assert_selector(css, text:content)
 end
+Given(/^I follow the "(.*?)" within "(.*?)" id$/) do |link, css|
+  click_link css
+end
+Then(/^I should see the page$/) do
+  save_and_open_page
+end

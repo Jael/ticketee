@@ -20,4 +20,14 @@
 | <%= link_to "Delete", [@project, @ticket], method: :delete, confirm: "Are you sure?" %>
 <% end %>
 </div>
-
+<h3>Comment</h3>
+<div id='comments'>
+  <% if @ticket.comments.exists? %><co id='ch10_191_1'/>
+    <%= render @ticket.comments.select(&:persisted?) %>
+  <% else %>
+    There are no comments for this ticket.
+  <% end %>
+</div>
+<div>
+  <%= render 'comments/form' %>
+</div>

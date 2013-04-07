@@ -5,5 +5,6 @@ class Ticket < ActiveRecord::Base
   validates_presence_of :title, :description
   validates :description, length:{minimum: 10}
   has_many :assets
+  has_many :comments
   accepts_nested_attributes_for :assets
 end

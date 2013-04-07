@@ -191,6 +191,7 @@ DEPENDENCIES
   email_spec
   factory_girl
   jquery-rails
+  launchy
   paperclip
   rails (= 3.2.12)
   rspec-rails
