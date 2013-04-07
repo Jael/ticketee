@@ -18,7 +18,6 @@ Feature: Creating comments
 
   Scenario:Creating a comment
     When I follow "Change a ticket's state"
-    Then I should see the page
     And I fill in "Text" with "Added a comment!"
     And I press "Create Comment"
     Then I should see "Comment has been created."
@@ -30,4 +29,12 @@ Feature: Creating comments
     Then I should see "Comment has not been created."
     And I should see "Text can't be blank"
 
-
+  Scenario: Changing a ticket's state
+    Given there is a state called "Open"
+    When I follow "Change a ticket's state"
+    When I fill in "Text" with "This is a real issue"
+    And I select "Open" from "State"
+    And I press "Create Comment"
+    Then I should see "Comment has been created"
+    Then I should see the page
+    And I should see the "Open" within "#ticket .state"
