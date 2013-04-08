@@ -14,6 +14,9 @@ end
 Then(/^I should see the "(.*?)" within "(.*?)"$/) do |content, css|
   page.assert_selector(css, text:content)
 end
+Then(/^I should not see the "(.*?)" within "(.*?)"$/) do |content, css|
+  page.should_not have_css(css, text:content)
+end
 Given(/^I follow the "(.*?)" within "(.*?)" id$/) do |link, css|
   click_link css
 end

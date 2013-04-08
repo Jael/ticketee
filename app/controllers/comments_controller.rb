@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
       params[:comment].delete(:state_id)
     end
     @comment = @ticket.comments.new(params[:comment].merge(user: current_user))
+    @ticket.tag!(params[:tags])
     if @comment.save
       redirect_to [@ticket.project, @ticket], notice: "Comment has been created."
     else
@@ -14,6 +15,7 @@ class CommentsController < ApplicationController
       render 'tickets/show'
     end
   end
+
   private
   def find_ticket
     @ticket = Ticket.find(params[:ticket_id])

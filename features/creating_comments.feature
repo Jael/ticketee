@@ -45,3 +45,11 @@ Feature: Creating comments
     Then I should see the page
     Then I should not see the "#comment_state_id" element
   
+  Scenario: Adding a tag to a ticket
+    When I follow "Change a ticket's state"
+    Then I should not see the "bug" within "#ticket #tags"
+    And I fill in "Text" with "Adding the bug tag"
+    And I fill in "Tags" with "bug"
+    And I press "Create Comment"
+    Then I should see "Comment has been created"
+    Then I should see the "bug" within "#ticket #tags"
