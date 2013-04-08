@@ -1,6 +1,10 @@
 <%= link_to "New State", new_admin_state_path %>
 <ul>
   <% @states.each do |state| %>
-    <li><%= state.name %></li>
+    <li>
+    <%= state.name %>
+    
+    <%= link_to "Make default", make_default_admin_state_path(state), id: "state_#{state.id}"   %>
+    </li>
   <% end %>
 </ul>
