@@ -8,6 +8,7 @@ Feature: Assigning permissions
       |email|password|admin|
       |admin@ticketee.com|password|true|
       |user@ticketee.com|password|false|
+    And there is a state called "Open"
     And I am signed in as admin
     And there is a project called "TextMate2"
     And "user@ticketee.com" has created a ticket for that project:
@@ -65,4 +66,17 @@ Feature: Assigning permissions
     And I follow "Shiny!"
     And I follow "Delete"
     Then I should see "Ticket has been deleted."
-    
+   Scenario: Changing states for a ticket
+    When I check the "View" for "TextMate2"
+    And I check the "Change States" for "TextMate2"
+    And I press "Update"
+    And I follow "Sign out"
+
+    Given I am signed in as them
+    When I follow "TextMate2"
+    And I follow "Shiny!"
+    When I fill in "Text" with "Opening this ticket."
+    And I select "Open" from "State"
+    And I press "Create Comment"
+    Then I should see "Comment has been created."
+    And I should see the "Open" within "#ticket .state"

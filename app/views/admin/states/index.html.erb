@@ -3,7 +3,6 @@
   <% @states.each do |state| %>
     <li>
     <%= state.name %>
-    
     <%= link_to "Make default", make_default_admin_state_path(state), id: "state_#{state.id}"   %>
     </li>
   <% end %>
