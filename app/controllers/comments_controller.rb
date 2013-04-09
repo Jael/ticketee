@@ -6,7 +6,9 @@ class CommentsController < ApplicationController
       params[:comment].delete(:state_id)
     end
     @comment = @ticket.comments.new(params[:comment].merge(user: current_user))
-    @ticket.tag!(params[:tags])
+    if can?(:tag, @ticket.project) || current_user.admin?
+      @ticket.tag!(params[:tags])
+    end
     if @comment.save
       redirect_to [@ticket.project, @ticket], notice: "Comment has been created."
     else
