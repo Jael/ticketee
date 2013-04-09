@@ -53,4 +53,5 @@ Feature: Creating comments
     And I fill in "Tags" with "bug"
     And I press "Create Comment"
     Then I should see "Comment has been created"
+    And I should see the page
     Then I should see the "bug" within "#ticket #tags"

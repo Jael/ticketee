@@ -40,6 +40,7 @@ gem 'devise'
 gem 'cancan'
 
 gem 'paperclip'
+gem 'searcher'
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
